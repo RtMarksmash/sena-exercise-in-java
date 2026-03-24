@@ -4,10 +4,21 @@
  */
 package com.mycompany.project_module.controller;
 
+import com.mycompany.project_module.view.VUsuario;
+
 /**
  *
  * @author USUARIO
  */
-public class Cpantalla {
+public class CPantalla {
+     private static VUsuario pantalla;
+
+    public static void abrirPantalla() {
+
+        pantalla = new VUsuario();
+        pantalla.setVisible(true);
+        pantalla.setLocationRelativeTo(null);
+
+    }
     
 }

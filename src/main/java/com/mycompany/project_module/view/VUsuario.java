@@ -6,6 +6,7 @@ package com.mycompany.project_module.view;
 
 import com.mycompany.project_module.controller.CUsuario;
 import com.mycompany.project_module.module.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -176,17 +177,27 @@ public class VUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_TextPasswordActionPerformed
 
     private void ResgistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResgistrarActionPerformed
-        int id = Integer.parseInt(TextId.getText());
-        String nombre = TextId.getText();
+ 
+        CUsuario controlEst = new CUsuario();
+        String nombre = TextNombre.getText();
         String apellido = TextApellido.getText();
         String tipoDeSangre = TextTipoDeSangre.getText();
-        int cargo = Integer.parseInt(TextCargo.getText());
+        String cargoText = TextCargo.getText();
+        if(cargoText.isEmpty()){
+           JOptionPane.showMessageDialog(null, "el cargo es obligatorio");
+           return;
+        }
+        int cargo = Integer.parseInt(cargoText);
+        
+        if(!controlEst.existeCargo(cargo)){
+            JOptionPane.showMessageDialog(null, "El cargo no existe");
+            return;
+        }
         String email = TextEmail.getText();
         String password = TextPassword.getText();
         
-        Usuario user = new Usuario(id,nombre,apellido,tipoDeSangre,cargo,email,password);
-      
-        CUsuario controlEst = new CUsuario();        
+        Usuario user = new Usuario(0,nombre,apellido,tipoDeSangre,cargo,email,password);
+          
         controlEst.registrarUsuario(user);
         limpiarPantalla();  
     }//GEN-LAST:event_ResgistrarActionPerformed

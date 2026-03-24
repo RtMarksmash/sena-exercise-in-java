@@ -5,6 +5,7 @@
 package com.mycompany.project_module.controller;
 
 import com.mycompany.project_module.module.Usuario;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -44,5 +45,22 @@ public class CUsuario {
     public void eliminarUsuarios(){
         
     }
-      
+    
+    public boolean existeCargo(int idCargo){
+        boolean existe=false;
+        Statement st;
+        
+        try{
+        st=Conexion.getConect().createStatement();
+        String sql = "SELECT id_cargo FROM cargo WHERE id_cargo = " + idCargo;
+        ResultSet rs = st.executeQuery(sql);
+        if (rs.next()) {
+            existe = true;
+        }
+        }catch(SQLException ex){
+            Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "error en la consulta");
+        }    
+        return existe;
+    }   
 }
