@@ -4,13 +4,17 @@
 
 package com.mycompany.project_module;
 
+import com.mycompany.project_module.controller.Conexion;
+import com.mycompany.project_module.controller.CPantalla;
+
 /**
  *
  * @author USUARIO
  */
 public class Project_module {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+     public static void main(String[] args) {
+        Conexion.conectar();
+        CPantalla.abrirPantalla();
     }
 }
