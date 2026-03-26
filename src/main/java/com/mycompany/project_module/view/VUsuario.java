@@ -179,6 +179,11 @@ public class VUsuario extends javax.swing.JFrame {
     private void ResgistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResgistrarActionPerformed
  
         CUsuario controlEst = new CUsuario();
+        String id = TextId.getText();
+        if (!id.isEmpty()){
+            JOptionPane.showMessageDialog(null, "en el registro no es necesario digitar el id");
+            return;
+        }
         String nombre = TextNombre.getText();
         String apellido = TextApellido.getText();
         String tipoDeSangre = TextTipoDeSangre.getText();
