@@ -87,6 +87,7 @@ public class VUsuario extends javax.swing.JFrame {
         Resgistrar.addActionListener(this::ResgistrarActionPerformed);
 
         Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(this::EliminarActionPerformed);
 
         Modificar.setText("Modificar");
 
@@ -206,6 +207,12 @@ public class VUsuario extends javax.swing.JFrame {
         controlEst.registrarUsuario(user);
         limpiarPantalla();  
     }//GEN-LAST:event_ResgistrarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        int id = Integer.parseInt(TextId.getText());
+        CUsuario controlEst = new CUsuario();
+        controlEst.eliminarUsuarios(id);
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments

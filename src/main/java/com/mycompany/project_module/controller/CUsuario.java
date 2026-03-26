@@ -42,7 +42,18 @@ public class CUsuario {
     }
         
      
-    public void eliminarUsuarios(){
+    public void eliminarUsuarios(int id){
+              Statement st;
+    try {
+        st = Conexion.getConect().createStatement();
+        st.execute("delete from usuarios where id_usuario='" + id + "'");
+
+        JOptionPane.showMessageDialog(null, "Usuario Eliminado");
+
+    } catch (SQLException ex) {
+        Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, "Fallo Eliminación");
+    }
         
     }
     
