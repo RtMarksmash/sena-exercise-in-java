@@ -90,6 +90,7 @@ public class VUsuario extends javax.swing.JFrame {
         Eliminar.addActionListener(this::EliminarActionPerformed);
 
         Modificar.setText("Modificar");
+        Modificar.addActionListener(this::ModificarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +213,34 @@ public class VUsuario extends javax.swing.JFrame {
         int id = Integer.parseInt(TextId.getText());
         CUsuario controlEst = new CUsuario();
         controlEst.eliminarUsuarios(id);
+        limpiarPantalla();
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        CUsuario controlEst = new CUsuario();
+        String idText =  TextId.getText();
+        if(idText.isEmpty()){
+            JOptionPane.showMessageDialog(null, "El id es necesario para la modificacion");
+            return;
+        }
+        int id = Integer.parseInt(idText);
+        String nombre = TextNombre.getText();
+        String apellido = TextApellido.getText();
+        String tipoDeSangre = TextTipoDeSangre.getText();
+
+        int cargo = Integer.parseInt(TextCargo.getText());
+        
+        if(!controlEst.existeCargo(cargo)){
+            JOptionPane.showMessageDialog(null, "El cargo no existe");
+            return;
+        }
+        String email = TextEmail.getText();
+        String password = TextPassword.getText();
+        
+        Usuario u = new Usuario(id,nombre,apellido,tipoDeSangre,cargo,email,password);
+        controlEst.modificarUsuarios(u);
+        limpiarPantalla();
+    }//GEN-LAST:event_ModificarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -40,6 +40,26 @@ public class CUsuario {
         }
         
     }
+    
+    public void modificarUsuarios(Usuario u){
+          Statement st;
+    try {
+        st = Conexion.getConect().createStatement();
+        st.execute("UPDATE usuarios SET "
+        + "nombre='" + u.getNombre() + "', "
+        + "apellido='" + u.getApellido() + "', "
+        + "tipo_de_sangre='" + u.getTipoDeSangre() + "', "
+        + "cargo=" + u.getCargo() + ", "
+        + "email='" + u.getEmail() + "', "
+        + "password='" + u.getPassword() + "' "
+        + "WHERE id_usuario=" + u.getId());
+        JOptionPane.showMessageDialog(null, "Usuario Actualizado");
+
+    } catch (SQLException ex) {
+        Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, "Fallo actualizacion");
+    }
+    }
         
      
     public void eliminarUsuarios(int id){

@@ -13,7 +13,7 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String tipoDeSangre;
-    private int cargo;
+    private Integer cargo;
     private String email;
     private String password;
 
@@ -59,7 +59,7 @@ public class Usuario {
         this.tipoDeSangre = tipoDeSangre;
     }
 
-    public int getCargo() {
+    public Integer getCargo() {
         return cargo;
     }
 
