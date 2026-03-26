@@ -11,12 +11,45 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author USUARIO
  */
 public class CUsuario {
+     public ResultSet consultarEstudiante() {
+
+    ResultSet rs = null;
+    Statement st;
+
+    try {
+        st = Conexion.getConect().createStatement();
+        rs = st.executeQuery("select * from usuarios");
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    return rs;
+}
+    
+    public ResultSet consultarEstudiantePorId(int id) {
+
+    ResultSet rs = null;
+    Statement st;
+
+    try {
+        st = Conexion.getConect().createStatement();
+        rs = st.executeQuery("select * from estudiante where id_usuario='" + id + "'");
+
+    } catch (SQLException ex) {
+        Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    return rs;
+}
     
     
     public void registrarUsuario(Usuario user){
@@ -94,4 +127,42 @@ public class CUsuario {
         }    
         return existe;
     }   
+    
+    public void pintarTabla(JTable tabla, ResultSet rs) {
+
+    DefaultTableModel modelo = new DefaultTableModel();
+
+    modelo.addColumn("Id");
+    modelo.addColumn("Nombre");
+    modelo.addColumn("Apellido");
+    modelo.addColumn("TipoDeSangre");
+    modelo.addColumn("Cargo");
+    modelo.addColumn("Email");
+    modelo.addColumn("Password");
+
+    try {
+        while (rs.next()) {
+
+            String[] fila = {
+                rs.getString("id_usuario"),
+                rs.getString("nombre"),
+                rs.getString("apellido"),
+                rs.getString("tipo_de_sangre"),
+                rs.getString("cargo"),
+                rs.getString("email"),
+                rs.getString("password")
+                        
+            };
+
+            modelo.addRow(fila);
+        }
+
+        tabla.setModel(modelo);
+
+    } catch (SQLException ex) {
+        Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        JOptionPane.showMessageDialog(null, "error al pintar la tabla");
+    }
+    
+}
 }
