@@ -42,7 +42,7 @@ public class CUsuario {
 
     try {
         st = Conexion.getConect().createStatement();
-        rs = st.executeQuery("select * from estudiante where id_usuario='" + id + "'");
+        rs = st.executeQuery("select * from usuarios where id_usuario='" + id + "'");
 
     } catch (SQLException ex) {
         Logger.getLogger(CUsuario.class.getName()).log(Level.SEVERE, null, ex);
