@@ -74,6 +74,8 @@ public class VUsuario extends javax.swing.JFrame {
         Modificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuario = new javax.swing.JTable();
+        Limpiar = new javax.swing.JButton();
+        actualizaTabla = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -130,6 +132,12 @@ public class VUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaUsuario);
 
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(this::LimpiarActionPerformed);
+
+        actualizaTabla.setText("Actualizar tabla");
+        actualizaTabla.addActionListener(this::actualizaTablaActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,36 +145,43 @@ public class VUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Eliminar)
+                    .addComponent(tipoDeSangre)
+                    .addComponent(apellido)
+                    .addComponent(password)
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tipoDeSangre)
-                            .addComponent(apellido)
-                            .addComponent(password)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(80, 80, 80)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextId)
-                                    .addComponent(TextNombre)
-                                    .addComponent(TextApellido)
-                                    .addComponent(TextTipoDeSangre)
-                                    .addComponent(TextCargo)
-                                    .addComponent(TextEmail)
-                                    .addComponent(TextPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Consultar)
-                                .addGap(18, 18, 18)
-                                .addComponent(Resgistrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(Modificar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextId)
+                            .addComponent(TextNombre)
+                            .addComponent(TextApellido)
+                            .addComponent(TextTipoDeSangre)
+                            .addComponent(TextCargo)
+                            .addComponent(TextEmail)
+                            .addComponent(TextPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Consultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Limpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Resgistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(Modificar)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(19, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(actualizaTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +223,10 @@ public class VUsuario extends javax.swing.JFrame {
                             .addComponent(Resgistrar)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(Eliminar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Eliminar)
+                    .addComponent(Limpiar)
+                    .addComponent(actualizaTabla))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -303,6 +321,16 @@ public class VUsuario extends javax.swing.JFrame {
         controlEst.pintarTabla(tablaUsuario, controlEst.consultarEstudiante());
     }//GEN-LAST:event_formWindowOpened
 
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        limpiarPantalla();
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void actualizaTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizaTablaActionPerformed
+        CUsuario controlEst = new CUsuario();
+        
+        controlEst.pintarTabla(tablaUsuario, controlEst.consultarEstudiante());
+    }//GEN-LAST:event_actualizaTablaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -331,6 +359,7 @@ public class VUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Consultar;
     private javax.swing.JButton Eliminar;
+    private javax.swing.JButton Limpiar;
     private javax.swing.JButton Modificar;
     private javax.swing.JButton Resgistrar;
     private javax.swing.JTextField TextApellido;
@@ -340,6 +369,7 @@ public class VUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField TextNombre;
     private javax.swing.JTextField TextPassword;
     private javax.swing.JTextField TextTipoDeSangre;
+    private javax.swing.JButton actualizaTabla;
     private javax.swing.JLabel apellido;
     private javax.swing.JLabel cargo;
     private javax.swing.JLabel email;

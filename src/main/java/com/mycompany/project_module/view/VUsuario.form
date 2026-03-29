@@ -29,43 +29,53 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Eliminar" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tipoDeSangre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="apellido" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="password" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nombre" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="cargo" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="email" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="id" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TextId" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextNombre" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextApellido" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextTipoDeSangre" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextCargo" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TextPassword" alignment="0" pref="130" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="Consultar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Resgistrar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Modificar" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Component id="tipoDeSangre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellido" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="password" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombre" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="cargo" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="email" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="id" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="427" max="-2" attributes="0"/>
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TextId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextNombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextApellido" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextTipoDeSangre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextCargo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextPassword" alignment="0" pref="130" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="Eliminar" max="32767" attributes="0"/>
+                          <Component id="Consultar" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Limpiar" max="32767" attributes="0"/>
+                          <Component id="Resgistrar" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Modificar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="427" max="-2" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="actualizaTabla" min="-2" pref="122" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,7 +129,11 @@
                   <Component id="jScrollPane1" min="-2" pref="331" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Eliminar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="actualizaTabla" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -237,5 +251,21 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="Limpiar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpiar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimpiarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="actualizaTabla">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar tabla"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizaTablaActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
